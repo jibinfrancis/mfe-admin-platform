@@ -1,0 +1,19 @@
+[
+    {
+      "name": "dashboard",
+      "scope": "mfeDashboard",
+      "module": "./App",
+      "url": "http://localhost:3001/remoteEntry.js",
+      "route": "/",
+      "enabled": true
+    },
+    {
+      "name": "forms",
+      "scope": "mfeForms",
+      "module": "./App",
+      "url": "http://localhost:3002/remoteEntry.js",
+      "route": "/forms",
+      "enabled": true
+    }
+  ]
+  

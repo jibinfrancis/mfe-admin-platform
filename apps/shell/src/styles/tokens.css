@@ -1,8 +1,9 @@
 :root {
     /* Brand */
-    --color-primary: #3bb2c1;
-    --color-primary-hover: #2fa0af;
-    --color-primary-soft: #e6f6f8;
+    --color-primary: #3EA4DB;
+    --color-primary-hover: #1E8FCB;
+    --color-primary-soft: #2fa0af;
+    --color-primary-very-soft: #e6f6f8;
   
     /* Backgrounds */
     --color-bg: #f5f7fb;

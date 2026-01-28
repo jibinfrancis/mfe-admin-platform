@@ -1,5 +1,7 @@
 
 import { ReactNode } from "react";
+import Header from "../components/header/Header";
+import Sidebar from "../components/sidebar/Sidebar";
 
 interface ShellLayoutProps {
     children: ReactNode;
@@ -7,10 +9,10 @@ interface ShellLayoutProps {
 
 const ShellLayout = ({ children }: ShellLayoutProps) => {
     return (
-        <div className="h-screen flex">
-            <div className="w-1/3 flex justify-center">SideBar</div>
+        <div className="h-screen bg-bg flex">
+            <Sidebar />
             <div className="flex-1 flex flex-col overflow-hidden">
-                <div className="h-10">header</div>
+                <Header />
                 <div className="flex-1 overflow-y-auto p-5">
                     {children}
                 </div>

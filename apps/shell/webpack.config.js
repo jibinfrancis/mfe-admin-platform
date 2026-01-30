@@ -1,8 +1,9 @@
+const { ModuleFederationPlugin } = require("webpack").container;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   devServer: { port: 3000, historyApiFallback: true },
-  entry: "./src/bootstrap.tsx",
+  entry: "./src/index.ts",
   resolve: {
     extensions: [".tsx", ".ts", ".js"]
   },
@@ -22,7 +23,16 @@ module.exports = {
       }],
 
   },
+
   plugins: [
+    new ModuleFederationPlugin({
+      name: "shell",
+    
+      shared: {
+        react: { singleton: true, requiredVersion: false },
+        "react-dom": { singleton: true, requiredVersion: false }
+      }
+    }),
     new HtmlWebpackPlugin({ template: "./public/index.html" })
   ]
 };

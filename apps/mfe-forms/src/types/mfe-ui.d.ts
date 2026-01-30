@@ -47,11 +47,26 @@ declare module "mfeUi" {
         columns: Column<T>[];
         filters?: Filter[];
         actions?: TableAction<T>[];
-    
+
         rowClassName?: (row: T) => string;
     };
 
-    export const DataTable:React.FC<TableProps>
+    export type ModalVariant = "center" | "side";
+
+    export type ModalWidth = "sm" | "md" | "lg";
+
+    export interface ModalProps {
+        open: boolean;
+        onClose: () => void;
+        title?: string;
+        children: React.ReactNode;
+        variant?: ModalVariant;
+        width?: ModalWidth;
+    }
+
+    export const Modal: React.FC<ModalProps>;
+
+    export const DataTable: React.FC<TableProps>;
 
     export const Select: React.FC<SelectProps>;
 }

@@ -28,6 +28,9 @@ module.exports = {
       name: "mfeForms",
       filename: "remoteEntry.js",
       exposes: { "./App": "./src/App" },
+      remotes: {
+        mfeUi: "promise new Promise(resolve => resolve(window.mfeUi))"
+      },
       shared: { react: { singleton: true, requiredVersion: false }, "react-dom": { singleton: true, requiredVersion: false } }
     }),
     new HtmlWebpackPlugin({ template: "./public/index.html" })

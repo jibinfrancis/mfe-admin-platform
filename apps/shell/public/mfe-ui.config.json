@@ -1,0 +1,6 @@
+{
+    "scope": "mfeUi",
+    "module":".",
+    "name":"UI-Components",
+    "url": "http://localhost:3004/remoteEntry.js"
+}

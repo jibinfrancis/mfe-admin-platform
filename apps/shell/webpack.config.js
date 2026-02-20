@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const { ModuleFederationPlugin } = require("webpack").container;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -28,9 +29,17 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env.RUNTIME_CONFIG_URL": JSON.stringify(
+        process.env.RUNTIME_CONFIG_URL || "",
+      ),
+      "process.env.UI_COMPONENTS_URL": JSON.stringify(
+        process.env.UI_COMPONENTS_URL || ""
+      ),
+    }),
     new ModuleFederationPlugin({
       name: "shell",
-    
+
       shared: {
         react: { singleton: true, requiredVersion: false },
         "react-dom": { singleton: true, requiredVersion: false }

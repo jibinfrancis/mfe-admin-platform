@@ -8,6 +8,9 @@ module.exports = {
   },
 
   entry: "./src/index.ts",
+  output: {
+    publicPath: "auto"
+  },
 
   resolve: {
     extensions: [".tsx", ".ts", ".js"]

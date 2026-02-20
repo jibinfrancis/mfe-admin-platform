@@ -4,6 +4,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   devServer: { port: 3000, historyApiFallback: true },
   entry: "./src/index.ts",
+  output: {
+    publicPath: "auto"
+  },
   resolve: {
     extensions: [".tsx", ".ts", ".js"]
   },

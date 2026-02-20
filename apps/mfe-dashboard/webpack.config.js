@@ -4,6 +4,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   devServer: { port: 3001 },
   entry: "./src/index.ts",
+  output: {
+    publicPath: "auto"
+  },
   devServer: {
     port: 3001,
     headers: {

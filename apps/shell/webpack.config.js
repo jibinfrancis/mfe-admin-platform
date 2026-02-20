@@ -1,6 +1,9 @@
 const webpack = require("webpack");
 const { ModuleFederationPlugin } = require("webpack").container;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const path = require("path");
+
 
 module.exports = {
   devServer: { port: 3000, historyApiFallback: true },
@@ -29,6 +32,16 @@ module.exports = {
   },
 
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "public"),
+          globOptions: {
+            ignore: ["**/index.html"],
+          },
+        },
+      ],
+    }),
     new webpack.DefinePlugin({
       "process.env.RUNTIME_CONFIG_URL": JSON.stringify(
         process.env.RUNTIME_CONFIG_URL || "",

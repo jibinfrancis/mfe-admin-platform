@@ -9,7 +9,7 @@ interface Users {
 }
 export default function Forms() {
   const [isEditModal, setIsEditModal] = useState<boolean>(false);
-  
+
   const userData = [
     {
       name: "Jibin",
@@ -66,8 +66,7 @@ export default function Forms() {
       open={isEditModal}
       onClose={() => setIsEditModal(false)}
       title={"Edit User"}
-      width="sm"
-      variant="center"
+      width="lg"
     >
       <Select
         label="Role"

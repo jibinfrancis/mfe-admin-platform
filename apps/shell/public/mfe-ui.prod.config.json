@@ -1,0 +1,6 @@
+{
+    "scope": "mfeUi",
+    "module":".",
+    "name":"UI-Components",
+    "url": "https://mfe-ui.vercel.app/remoteEntry.js"
+}

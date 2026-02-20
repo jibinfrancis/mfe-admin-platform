@@ -1,0 +1,19 @@
+[
+    {
+      "name": "dashboard",
+      "scope": "mfeDashboard",
+      "module": "./App",
+      "url": "https://mfe-dashboards.vercel.app/remoteEntry.js",
+      "route": "/",
+      "enabled": true
+    },
+    {
+      "name": "forms",
+      "scope": "mfeForms",
+      "module": "./App",
+      "url": "https://mfe-forms.vercel.app/remoteEntry.js",
+      "route": "/forms",
+      "enabled": true
+    }
+  ]
+  

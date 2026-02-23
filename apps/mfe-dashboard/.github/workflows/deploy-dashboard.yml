@@ -3,7 +3,7 @@ name: Deploy Forms
 on:
   push:
     tags:
-      - "forms-v*"
+      - "dashboard-v*"
 
 jobs:
   deploy:

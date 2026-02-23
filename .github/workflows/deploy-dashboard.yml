@@ -28,6 +28,4 @@ jobs:
         run: npm i -g vercel
 
       - name: Deploy Dashboard
-        run: |
-          cd apps/mfe-dashboard
-          vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }} --cwd apps/mfe-dashboard

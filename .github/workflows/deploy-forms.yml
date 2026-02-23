@@ -11,9 +11,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - run: npm i -g vercel
 
-      - run: |
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Vercel CLI
+        run: npm i -g vercel
+      
+      - name: Deploy Forms
+        run: |
           cd apps/mfe-forms
           vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
           vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}

@@ -17,12 +17,17 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build UI Helpers
+        run: npm run build --workspace=apps/mfe-ui
+
       - name: Install Vercel CLI
         run: npm i -g vercel
-        
+
       - name: Deploy UI Helpers
-        run: |
-          cd apps/mfe-ui
-          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-          vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-          vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_UI_HELPERS_PROJECT_ID }}

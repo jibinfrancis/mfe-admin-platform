@@ -16,6 +16,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Dashboard
+        run: npm run build --workspace=apps/mfe-dashboard
 
       - name: Install Vercel CLI
         run: npm i -g vercel
@@ -23,6 +30,4 @@ jobs:
       - name: Deploy Dashboard
         run: |
           cd apps/mfe-dashboard
-          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-          vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-          vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+          vercel deploy dist --prod --token=${{ secrets.VERCEL_TOKEN }}

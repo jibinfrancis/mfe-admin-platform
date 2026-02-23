@@ -30,4 +30,4 @@ jobs:
       - name: Deploy Dashboard
         run: |
           cd apps/mfe-dashboard
-          vercel deploy dist --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+          vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}

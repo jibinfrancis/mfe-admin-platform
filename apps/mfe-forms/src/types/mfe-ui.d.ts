@@ -53,7 +53,7 @@ declare module "mfeUi" {
 
     export type ModalVariant = "center" | "side";
 
-    export type ModalWidth = "sm" | "md" | "lg";
+    export type ModalWidth = "sm" | "md" | "lg" | "xl";
 
     export interface ModalProps {
         open: boolean;
@@ -64,9 +64,41 @@ declare module "mfeUi" {
         width?: ModalWidth;
     }
 
+    export interface DynamicFormProps {
+        fields: FieldConfig[];
+        control: Control<any>;
+        register: UseFormRegister<any>;
+        setValue: UseFormSetValue<any>;
+    }
+
+    export type loadOptionsFn = (
+        parents: Record<string, any> | undefined,
+        input: string
+    ) => Promise<Option[]>;
+
+    export interface FieldConfig {
+        validation?: any;
+        span?: {
+            xs?: number;
+            md?: number;
+            lg?: number;
+        };
+        name?: string;
+        type: string;
+        label?: string;
+        dependsOn?: string | string[];
+        options?: Option[];
+        showIf?: (values: Record<string, any>) => boolean;
+        isDisabled?: boolean;
+        render?: () => React.ReactNode;
+        loadOptions?: loadOptionsFn;
+    }
+
     export const Modal: React.FC<ModalProps>;
 
     export const DataTable: React.FC<TableProps>;
 
     export const Select: React.FC<SelectProps>;
+
+    export const DynamicForm: React.FC<DynamicFormProps>;
 }

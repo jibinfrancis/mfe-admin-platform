@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Select, DataTable, Column, TableAction, Modal } from "mfeUi";
+import {
+  DynamicForm
+} from "mfeUi";
 import './styles/globals.css'
+import { userFields } from "./components/FieldConfigs/userForm.config";
+import { useForm } from "react-hook-form";
 interface Users {
   name: string;
   id: string;
@@ -9,6 +14,19 @@ interface Users {
 }
 export default function Forms() {
   const [isEditModal, setIsEditModal] = useState<boolean>(false);
+
+  const {
+    control,
+    register,
+    setValue,
+    handleSubmit
+  } = useForm({
+    defaultValues: {
+      firstName: "",
+      role: ""
+    }
+  });
+
 
   const userData = [
     {
@@ -56,6 +74,10 @@ export default function Forms() {
     }
   ]
 
+const onSubmit = (data:any) => {
+    console.log("USER FORM DATA:", data);
+  };
+
   return <div>
     <DataTable
       columns={columns}
@@ -66,15 +88,27 @@ export default function Forms() {
       open={isEditModal}
       onClose={() => setIsEditModal(false)}
       title={"Edit User"}
-      width="lg"
+      width="xl"
     >
-      <Select
+      {/* <Select
         label="Role"
         options={[
           { label: "Admin", value: "admin" },
           { label: "User", value: "user" }
         ]}
-      />
+      /> */}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <DynamicForm
+          fields={userFields}
+          control={control}
+          register={register}
+          setValue={setValue}
+        />
+
+        <div className="flex justify-end mt-5">
+          <button className="bg-primary text-white px-5 py-1.5 rounded-md" type="submit">Save User</button>
+        </div>
+      </form>
     </Modal>
   </div>
 }

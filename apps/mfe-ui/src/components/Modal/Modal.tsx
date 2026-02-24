@@ -4,7 +4,8 @@ import { ModalProps } from "./types";
 const widthMap = {
     sm: "max-w-sm",
     md: "max-w-md",
-    lg: "max-w-lg"
+    lg: "max-w-lg",
+    xl: "max-w-[70vw]"
 };
 
 export function Modal({
@@ -47,7 +48,7 @@ export function Modal({
                     </div>
                 </div>
             ) : (
-                <div className={`absolute inset-y-0 right-0 w-full ${widthMap[width]} bg-surface shadow-xl`}>
+                <div className={`absolute flex h-screen flex-col inset-y-0 right-0 w-full ${widthMap[width]} bg-surface shadow-xl`}>
                     <div className="flex items-center justify-between px-5 py-4 border-b border-border">
                         <h2 className="text-lg font-semibold text-font-primary">
                             {title}

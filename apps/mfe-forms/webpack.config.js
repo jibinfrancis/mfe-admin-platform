@@ -38,7 +38,8 @@ module.exports = {
         react: { singleton: true, requiredVersion: false },
         "react-dom": { singleton: true, requiredVersion: false },
         "react-hook-form": { singleton: true, requiredVersion: false },
-        zod: { singleton: true, requiredVersion: false }
+        zod: { singleton: true, requiredVersion: false },
+        "react-dom/client": { singleton: true, requiredVersion: false },
       }
     }),
     new HtmlWebpackPlugin({ template: "./public/index.html" })

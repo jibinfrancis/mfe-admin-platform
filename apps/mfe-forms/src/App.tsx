@@ -19,7 +19,8 @@ export default function Forms() {
     control,
     register,
     setValue,
-    handleSubmit
+    handleSubmit,
+    reset
   } = useForm({
     defaultValues: {
       firstName: "",
@@ -86,7 +87,10 @@ const onSubmit = (data:any) => {
     />
     <Modal
       open={isEditModal}
-      onClose={() => setIsEditModal(false)}
+      onClose={() => {
+        setIsEditModal(false)
+        reset()
+      }}
       title={"Edit User"}
       width="xl"
     >

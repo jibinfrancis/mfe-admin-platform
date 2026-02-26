@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@source inline("{sm,md,lg,xl}:col-span-{1..12}");
+
 @theme {
     /* Colors */
     --color-primary: var(--color-primary);

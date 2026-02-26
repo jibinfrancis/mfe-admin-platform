@@ -55,7 +55,9 @@ module.exports = {
 
       shared: {
         react: { singleton: true, requiredVersion: false },
-        "react-dom": { singleton: true, requiredVersion: false }
+        "react-dom": { singleton: true, requiredVersion: false },
+        "lucide-react": { singleton: true, requiredVersion: false },
+        "react-dom/client": { singleton: true, requiredVersion: false },
       }
     }),
     new HtmlWebpackPlugin({ template: "./public/index.html" })

@@ -8,13 +8,22 @@ const activities = [
 export default function ActivityPanel() {
     return (
         <div className="p-6 bg-white rounded-2xl ring-1 ring-slate-200/60 shadow-sm h-full">
-            <h3 className="text-sm text-slate-500 mb-4">Recent Activity</h3>
+            <h3 className="text-sm font-medium text-slate-700 mb-6">
+                Recent Activity
+            </h3>
+            <div className="relative flex flex-col gap-5">
+                {activities.map((item, i) => (
+                    <div key={item.id} className="flex items-start gap-3">
+                        <div className="mt-1 w-2 h-2 rounded-full bg-slate-300" />
+                        <div className="flex-1 flex justify-between">
+                            <p className="text-sm text-slate-600">
+                                {item.text}
+                            </p>
+                            <span className="text-xs text-slate-400">
+                                {item.time}
+                            </span>
+                        </div>
 
-            <div className="flex flex-col gap-4">
-                {activities.map(item => (
-                    <div key={item.id} className="flex justify-between text-sm">
-                        <span className="text-slate-700">{item.text}</span>
-                        <span className="text-slate-400">{item.time}</span>
                     </div>
                 ))}
             </div>

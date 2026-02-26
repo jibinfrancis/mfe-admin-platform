@@ -20,19 +20,33 @@ const data = [
 export default function AnalyticsChartCard() {
     return (
         <div className="p-6 bg-white rounded-2xl ring-1 ring-slate-200/60 shadow-sm h-full">
-            <h3 className="text-sm text-slate-500 mb-4">User Growth</h3>
-
+            <div className="flex items-start justify-between mb-6">
+                <div>
+                    <p className="text-xs text-slate-400">User Growth</p>
+                    <h3 className="text-xl font-semibold text-slate-800">
+                        +18.4%
+                    </h3>
+                </div>
+                <span className="text-xs px-2 py-1 rounded-md bg-slate-100 text-slate-500">
+                    This Week
+                </span>
+            </div>
             <div className="h-65">
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={data}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
+                        <CartesianGrid stroke="#f1f5f9" vertical={false} />
+                        <XAxis
+                            dataKey="name"
+                            axisLine={false}
+                            tickLine={false}
+                            tick={{ fill: "#94a3b8", fontSize: 12 }}
+                        />
                         <Tooltip />
                         <Line
                             type="monotone"
                             dataKey="users"
                             stroke="#3b82f6"
-                            strokeWidth={2}
+                            strokeWidth={2.5}
                             dot={false}
                         />
                     </LineChart>
